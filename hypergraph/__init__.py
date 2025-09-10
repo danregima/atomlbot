@@ -14,6 +14,11 @@ __version__ = "0.1.0"
 from .hypergraph import HyperGraph, HyperNode, HyperEdge
 from .hgnn import HyperGraphConvolution, HyperAttention, HGNNLayer
 from .hyperchannel import HyperChannel, DiscreteEventChannel, EventType
+from .hypergraphql import (
+    HyperGraphQLSchema, HyperGraphQLServer, GraphQLType, GraphQLField,
+    create_hypergraphql_schema, create_hypergraphql_server,
+    introspect_hypergraph_schema, introspect_hypergraph_type
+)
 
 # Components requiring AtomBot integration (commented out for now)
 # from .hyperagent import HyperAgent
@@ -29,6 +34,14 @@ __all__ = [
     "HyperChannel",
     "DiscreteEventChannel",
     "EventType",
+    "HyperGraphQLSchema",
+    "HyperGraphQLServer", 
+    "GraphQLType",
+    "GraphQLField",
+    "create_hypergraphql_schema",
+    "create_hypergraphql_server",
+    "introspect_hypergraph_schema",
+    "introspect_hypergraph_type",
     # "HyperAgent",
     # "DynamicalHyperSystem",
 ]
