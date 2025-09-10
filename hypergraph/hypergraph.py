@@ -109,9 +109,9 @@ class HyperEdge:
         # Nodes in this hyperedge
         self._nodes: Set[HyperNode] = set()
         
-        # Edge features for neural network processing
+        # Edge features for neural network processing (match node embedding dimension)
         self.features: Optional[np.ndarray] = None
-        self.embedding_dim = 64
+        self.embedding_dim = 64  # Should match node embedding dimension
         
         # Weight of this hyperedge (used in neural computations)
         self.weight = 1.0
@@ -121,7 +121,7 @@ class HyperEdge:
             for node in nodes:
                 self.add_node(node)
         
-        # Initialize random features if not provided
+        # Initialize random features if not provided (match node dimension)
         if self.features is None:
             self.features = np.random.randn(self.embedding_dim)
     

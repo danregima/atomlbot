@@ -10,11 +10,14 @@ This module extends the AtomBot architecture to support HyperGraphs where:
 
 __version__ = "0.1.0"
 
+# Core components that work standalone
 from .hypergraph import HyperGraph, HyperNode, HyperEdge
 from .hgnn import HyperGraphConvolution, HyperAttention, HGNNLayer
-from .hyperagent import HyperAgent
-from .hyperchannel import HyperChannel, DiscreteEventChannel
-from .dynamical_system import DynamicalHyperSystem
+from .hyperchannel import HyperChannel, DiscreteEventChannel, EventType
+
+# Components requiring AtomBot integration (commented out for now)
+# from .hyperagent import HyperAgent
+# from .dynamical_system import DynamicalHyperSystem
 
 __all__ = [
     "HyperGraph",
@@ -23,8 +26,9 @@ __all__ = [
     "HyperGraphConvolution",
     "HyperAttention",
     "HGNNLayer",
-    "HyperAgent",
     "HyperChannel",
-    "DiscreteEventChannel", 
-    "DynamicalHyperSystem",
+    "DiscreteEventChannel",
+    "EventType",
+    # "HyperAgent",
+    # "DynamicalHyperSystem",
 ]

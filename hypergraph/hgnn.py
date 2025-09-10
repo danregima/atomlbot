@@ -68,6 +68,7 @@ class HyperGraphConvolution(HyperGraphLayer):
         
         # Edge transformation matrix (if using edge features)
         if self.use_edge_features:
+            # Edge features should match input_dim for consistency
             self.W_edge = np.random.randn(self.input_dim, self.output_dim) * 0.1
         
         # Bias terms
@@ -299,8 +300,8 @@ class HGNNLayer(HyperGraphLayer):
         
         super().__init__(input_dim, output_dim, "HGNNLayer")
         
-        # Sub-layers
-        self.conv_layer = HyperGraphConvolution(input_dim, hidden_dim, aggregation)
+        # Sub-layers (disable edge features to avoid dimension mismatch)
+        self.conv_layer = HyperGraphConvolution(input_dim, hidden_dim, aggregation, use_edge_features=False)
         self.attention_layer = HyperAttention(hidden_dim, hidden_dim, num_attention_heads)
         
         # Final projection layer
@@ -332,7 +333,7 @@ class HGNNLayer(HyperGraphLayer):
         
         # Final projection
         output_features = attention_output @ self.output_projection + self.output_bias
-        output_features = np.relu(output_features)  # ReLU activation
+        output_features = np.maximum(0, output_features)  # ReLU activation
         
         # Update node features in the hypergraph
         nodes = list(hypergraph._nodes.values())
