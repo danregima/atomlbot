@@ -4,6 +4,8 @@ A variant of OpenCog AtomSpace where each atom is an instance of a Shopify shop-
 
 This package combines knowledge representation with conversational AI, creating a system
 where each knowledge node is also an autonomous chat agent.
+
+Now extended with HyperGraph Neural Networks (HGNN) for distributed hypergraph cognition.
 """
 
 __version__ = "0.1.0"
@@ -21,7 +23,17 @@ from .links.evaluation_link import EvaluationLink
 from .links.inheritance_link import InheritanceLink
 from .links.list_link import ListLink
 
+# HGNN components
+from .hypergraph.hypergraph import HyperGraph, HyperNode, HyperEdge
+from .hypergraph.hgnn import (
+    HyperGraphConvolution, HyperAttention, HGNNLayer, HyperGraphNeuralNetwork
+)
+from .hypergraph.hyperagent import HyperAgent
+from .hypergraph.hyperchannel import HyperChannel, DiscreteEventChannel, EventType
+from .hypergraph.dynamical_system import DynamicalHyperSystem
+
 __all__ = [
+    # Core AtomBot components
     "Atom",
     "Value",
     "FloatValue", 
@@ -36,4 +48,18 @@ __all__ = [
     "EvaluationLink",
     "InheritanceLink",
     "ListLink",
+    
+    # HGNN components
+    "HyperGraph",
+    "HyperNode",
+    "HyperEdge", 
+    "HyperGraphConvolution",
+    "HyperAttention",
+    "HGNNLayer",
+    "HyperGraphNeuralNetwork",
+    "HyperAgent",
+    "HyperChannel",
+    "DiscreteEventChannel",
+    "EventType",
+    "DynamicalHyperSystem",
 ]
