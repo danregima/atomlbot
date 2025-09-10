@@ -31,6 +31,11 @@ from .hypergraph.hgnn import (
 from .hypergraph.hyperagent import HyperAgent
 from .hypergraph.hyperchannel import HyperChannel, DiscreteEventChannel, EventType
 from .hypergraph.dynamical_system import DynamicalHyperSystem
+from .hypergraph.hypergraphql import (
+    HyperGraphQLSchema, HyperGraphQLServer, GraphQLType, GraphQLField,
+    create_hypergraphql_schema, create_hypergraphql_server,
+    introspect_hypergraph_schema, introspect_hypergraph_type
+)
 
 __all__ = [
     # Core AtomBot components
@@ -62,4 +67,14 @@ __all__ = [
     "DiscreteEventChannel",
     "EventType",
     "DynamicalHyperSystem",
+    
+    # HyperGraphQL components
+    "HyperGraphQLSchema",
+    "HyperGraphQLServer",
+    "GraphQLType", 
+    "GraphQLField",
+    "create_hypergraphql_schema",
+    "create_hypergraphql_server",
+    "introspect_hypergraph_schema",
+    "introspect_hypergraph_type",
 ]
